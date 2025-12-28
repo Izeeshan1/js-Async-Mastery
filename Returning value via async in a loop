@@ -1,0 +1,32 @@
+// Use await inside a loop to process an array sequentially
+
+async function sequentialArray(arr){
+const results=[];
+for (const item of arr){
+
+const result=await arrayItems(item);
+results.push(result);
+}
+return results;
+
+}
+
+async function arrayItems(item){
+
+return new Promise((resolve)=>{
+
+console.log(`Processed item : ${item}`);
+
+setTimeout(()=>{resolve(item);},1000)
+
+});
+}
+
+async function main (){
+const array=[2,3,4,5];
+const result1= await sequentialArray(array);
+console.log(result1);
+
+}
+main();
+
