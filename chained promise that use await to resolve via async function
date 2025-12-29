@@ -1,0 +1,30 @@
+//Write an async function that uses await on a chained promise.
+
+
+function outer(){
+
+return new Promise((resolve)=>{
+
+setTimeout(()=>{
+
+resolve(10);
+},2000);
+});
+
+}
+
+async function resolver(){
+try{
+const result= await outer()
+
+
+.then(result=> result*2)
+.then(results3=> results3+2)
+console.log(result);
+}
+catch(err){
+
+console.log(err);
+}
+}
+resolver();
