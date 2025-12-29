@@ -1,0 +1,29 @@
+// async function which will resolve promise using promise
+
+async function tester(){
+  
+  const p= new Promise ((resolve)=>{
+    resolve("hello");
+  });
+  
+ const p2= new Promise((resolve)=>{
+   
+   resolve(p);
+ });
+  
+  return p2;
+  
+}
+
+async function resolver(){
+  try{
+  const result = await tester();
+  console.log(result);
+  }
+  
+  catch(err){
+    console.log(err);
+  }
+}
+
+resolver();
